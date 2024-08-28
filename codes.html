@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+		}
+		.login-form {
+			width: 300px;
+			background-color: #fff;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin: 50px auto;
+			text-align: center;
+		}
+		.login-form input[type="text"], .login-form input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			margin: 10px 0;
+			border: 1px solid #ccc;
+		}
+		.login-form input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.login-form input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+		.loading-screen {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+			z-index: 1000;
+			display: none;
+		}
+		.loading-screen.show {
+			display: block;
+		}
+		.loading-screen .loader {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 24px;
+			color: #333;
+		}
+	</style>
+</head>
+<body>
+	<div class="login-form">
+		<h2>Login</h2>
+		<form>
+			<input type="text" id="username" placeholder="Username" required>
+			<input type="password" id="password" placeholder="Password" required>
+			<input type="submit" value="Login">
+		</form>
+	</div>
+	<div class="loading-screen">
+		<div class="loader">Loading...</div>
+	</div>
+	<script>
+		const form = document.querySelector('form');
+		const loadingScreen = document.querySelector('.loading-screen');
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const username = document.querySelector('#username').value;
+			const password = document.querySelector('#password').value;
+			if (username === 'carolina' && password === 'mylove') {
+				loadingScreen.classList.add('show');
+				setTimeout(() => {
+					window.location.href = 'Karol.html';
+				}, 5000);
+			} else {
+				alert('Invalid username or password');
+			}
+		});
+	</script>
+</body>
+</html>
